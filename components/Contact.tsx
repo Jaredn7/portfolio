@@ -25,7 +25,7 @@ export default function Contact() {
           variants={fadeInUp}
           className="text-xl text-slate-600 mb-10"
         >
-          I'm currently available for junior web developer roles or freelance projects. Let's discuss how I can contribute to your team.
+          I&apos;m currently available for junior web developer roles or freelance projects. Let&apos;s discuss how I can contribute to your team.
         </motion.p>
         
         <motion.div variants={fadeInUp}>

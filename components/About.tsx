@@ -26,7 +26,7 @@ export default function About() {
           </h2>
           <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
             <p>
-              I’m a web and app developer who doesn't just write code—I design and ship production systems. I specialize in using AI-assisted coding tools like Cursor and ChatGPT to build Swift iOS apps, React Native Android apps, and complex backends faster and more reliably.
+              I&apos;m a web and app developer who doesn&apos;t just write code—I design and ship production systems. I specialize in using AI-assisted coding tools like Cursor and ChatGPT to build Swift iOS apps, React Native Android apps, and complex backends faster and more reliably.
             </p>
             <p>
               Based in Johannesburg, I’ve been working remotely since 2021, delivering apps that real businesses use daily. From medical case management to AI real estate assistants, I focus on turning manual workflows into streamlined digital experiences.
