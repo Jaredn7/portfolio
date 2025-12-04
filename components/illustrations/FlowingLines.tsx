@@ -9,7 +9,7 @@ interface FlowingLinesProps {
 }
 
 export default function FlowingLines({ className = "", variant = "hero" }: FlowingLinesProps) {
-  const ref = useRef<SVGSVGElement>(null);
+  const ref = useRef<any>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
