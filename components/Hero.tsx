@@ -83,7 +83,7 @@ export default function Hero() {
               
               {/* Code Content */}
               <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm">
-                <div className="text-slate-400">// Building production apps</div>
+                <div className="text-slate-400">{`// Building production apps`}</div>
                 <div className="mt-2">
                   <span className="text-purple-600">const</span>{" "}
                   <span className="text-blue-600">developer</span> = {"{"}
