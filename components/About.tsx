@@ -1,70 +1,86 @@
 "use client";
 
 import { motion } from "framer-motion";
-import SectionWrapper from "@/components/ui/SectionWrapper";
-import Card from "@/components/ui/Card";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
+
+const features = [
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+    title: "AI-Powered Productivity",
+    description: "I'm excited about how tools like Cursor are accelerating what developers can achieve. They help me move faster and stay focused on building great user experiences."
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+      </svg>
+    ),
+    title: "Problem Solving",
+    description: "I debug, trace issues, and adapt code to real product needs. Every project deepens my understanding of how systems work together."
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+      </svg>
+    ),
+    title: "Always Improving",
+    description: "I iterate quickly: build, test, debug, and refine. I'm always learning new tools and techniques to tackle increasingly complex challenges."
+  },
+];
 
 export default function About() {
   return (
-    <SectionWrapper id="about">
-      <motion.div
-        className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center"
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        {/* Text Content */}
-        <motion.div variants={fadeInUp} className="order-2 lg:order-1">
-          <span className="text-blue-600 font-semibold tracking-wider uppercase text-sm mb-2 block">
+    <section id="about" className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mb-16"
+        >
+          <span className="text-sm font-semibold text-[#0F4C5C] uppercase tracking-wider mb-4 block">
             About Me
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
-            Self-taught developer <br />
-            <span className="text-slate-400">supercharged by AI.</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+            A bit about<br />
+            how I work.
           </h2>
-          <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
-            <p>
-              I&apos;m a web and app developer who doesn&apos;t just write code—I design and ship production systems. I specialize in using AI-assisted coding tools like Cursor and ChatGPT to build Swift iOS apps, React Native Android apps, and complex backends faster and more reliably.
-            </p>
-            <p>
-              Based in Johannesburg, I’ve been working remotely since 2021, delivering apps that real businesses use daily. From medical case management to AI real estate assistants, I focus on turning manual workflows into streamlined digital experiences.
-            </p>
-          </div>
+          <p className="text-lg text-slate-600 leading-relaxed">
+            I&apos;ve shipped real apps that solve real problems. I&apos;m excited about tools like Cursor and how they&apos;re 
+            transforming developer productivity—they let me move faster and focus on what matters most: building 
+            great products.
+          </p>
         </motion.div>
 
-        {/* Visuals / Stats Bento Grid */}
-        <motion.div 
-          variants={staggerContainer} 
-          className="order-1 lg:order-2 grid grid-cols-2 gap-4"
-        >
-          <motion.div variants={fadeInUp} className="col-span-2">
-            <Card className="aspect-[2/1] relative overflow-hidden flex items-center justify-center bg-slate-100 border-0">
-               <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-slate-100" />
-               <div className="relative z-10 text-center p-6">
-                 <div className="w-16 h-16 bg-white rounded-2xl shadow-sm mx-auto mb-3 flex items-center justify-center text-3xl">🤖</div>
-                 <p className="font-bold text-slate-900 text-lg">AI-First Approach</p>
-                 <p className="text-slate-500 text-sm mt-1">Leveraging LLMs for rapid development</p>
-               </div>
-            </Card>
-          </motion.div>
-          
-          <motion.div variants={fadeInUp}>
-            <Card className="aspect-square flex flex-col items-center justify-center p-6 text-center">
-              <span className="text-4xl font-bold text-blue-600 mb-1">4+</span>
-              <span className="text-sm text-slate-500 font-medium">Years Experience</span>
-            </Card>
-          </motion.div>
-
-          <motion.div variants={fadeInUp}>
-            <Card className="aspect-square flex flex-col items-center justify-center p-6 text-center">
-              <span className="text-4xl font-bold text-indigo-600 mb-1">Daily</span>
-              <span className="text-sm text-slate-500 font-medium">Production Usage</span>
-            </Card>
-          </motion.div>
-        </motion.div>
-      </motion.div>
-    </SectionWrapper>
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="group"
+            >
+              <div className="w-12 h-12 bg-[#0F4C5C]/10 rounded-xl flex items-center justify-center text-[#0F4C5C] mb-4 group-hover:bg-[#0F4C5C] group-hover:text-white transition-colors">
+                {feature.icon}
+              </div>
+              <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                {feature.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

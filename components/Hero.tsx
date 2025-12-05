@@ -1,104 +1,131 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
-import Button from "@/components/ui/Button";
-import { fadeInUp, staggerContainer } from "@/lib/animations";
-
-// Minimal futuristic grid background
-function GridBackground() {
-  return (
-    <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
-      <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-blue-400 opacity-20 blur-[100px]"></div>
-    </div>
-  );
-}
-
-function AIGreeting() {
-  const searchParams = useSearchParams();
-  const [greeting, setGreeting] = useState("");
-  
-  useEffect(() => {
-    setGreeting("AI-Assisted App Developer");
-  }, [searchParams]);
-
-  return (
-    <span className="text-sm font-medium text-slate-500 tracking-wide uppercase">
-      {greeting}
-    </span>
-  );
-}
-
-function GreetingFallback() {
-  return <span className="text-sm font-medium text-slate-500 tracking-wide uppercase">Loading...</span>;
-}
+import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-6 overflow-hidden pt-20">
-      <GridBackground />
-      
-      <motion.div
-        className="relative z-10 max-w-5xl mx-auto text-center"
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
-      >
-        {/* Badge */}
-        <motion.div 
-          variants={fadeInUp}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-50 border border-slate-200 mb-8"
-        >
-          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-          <Suspense fallback={<GreetingFallback />}>
-            <AIGreeting />
-          </Suspense>
-        </motion.div>
+    <section className="min-h-screen flex items-center pt-16 bg-gradient-to-b from-[#F8FAFB] to-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center lg:text-left"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#0F4C5C]/10 rounded-full mb-6">
+              <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+              <span className="text-sm font-medium text-[#0F4C5C]">Available for opportunities</span>
+            </div>
 
-        {/* Hero Title */}
-        <motion.h1
-          variants={fadeInUp}
-          className="text-6xl md:text-8xl font-display font-bold tracking-tight text-slate-900 mb-6 bg-clip-text text-transparent bg-gradient-to-b from-slate-900 to-slate-700"
-        >
-          Jared Naidoo
-        </motion.h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
+              I&apos;m Jared Naidoo.<br />
+              <span className="text-[#0F4C5C]">Software developer</span><br />
+              shipping real products.
+            </h1>
 
-        {/* Subtitle */}
-        <motion.p
-          variants={fadeInUp}
-          className="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          I build production-ready apps and AI agents using modern tools like Cursor and OpenAI. Specializing in Swift, React Native, and web development.
-        </motion.p>
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+              I build iOS, Android, and web apps using modern AI-assisted workflows. 
+              I&apos;m looking for a role where I can contribute to meaningful products and continue growing as a developer.
+            </p>
 
-        {/* Action Buttons */}
-        <motion.div
-          variants={fadeInUp}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Button href="#projects" variant="primary" size="lg" className="rounded-full px-8">
-            View Projects
-          </Button>
-          <Button href="#contact" variant="outline" size="lg" className="rounded-full px-8 bg-white/50 backdrop-blur-sm">
-            Contact Me
-          </Button>
-        </motion.div>
-      </motion.div>
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
+              <Link
+                href="#projects"
+                className="px-6 py-3 bg-[#0F4C5C] text-white font-medium rounded-lg hover:bg-[#1A6B7D] transition-colors flex items-center gap-2"
+              >
+                View Projects
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+              <Link
+                href="#contact"
+                className="px-6 py-3 bg-white text-slate-700 font-medium rounded-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-colors"
+              >
+                Get in Touch
+              </Link>
+            </div>
 
-      {/* Tech Stack Marquee */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-0 right-0 flex justify-center gap-8 opacity-40 grayscale text-sm font-medium text-slate-400"
-      >
-        <span>Swift</span>
-        <span>React Native</span>
-        <span>OpenAI</span>
-        <span>Xano</span>
-        <span>React</span>
-      </motion.div>
+            {/* Trust Indicators */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 sm:gap-4 text-slate-400 text-sm">
+              <span>Built apps for:</span>
+              <div className="flex items-center gap-3 sm:gap-6 font-medium text-slate-600">
+                <span>Real Estate</span>
+                <span className="hidden sm:inline">•</span>
+                <span>Healthcare</span>
+                <span className="hidden sm:inline">•</span>
+                <span>AI/ML</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Content - Code Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative"
+          >
+            {/* Main Card */}
+            <div className="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+              {/* Card Header */}
+              <div className="bg-slate-50 border-b border-slate-200 px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-3">
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-400" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                  <div className="w-3 h-3 rounded-full bg-green-400" />
+                </div>
+                <span className="text-xs sm:text-sm text-slate-500 font-mono">developer.ts</span>
+              </div>
+              
+              {/* Code Content */}
+              <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm">
+                <div className="text-slate-400">// Building production apps</div>
+                <div className="mt-2">
+                  <span className="text-purple-600">const</span>{" "}
+                  <span className="text-blue-600">developer</span> = {"{"}
+                </div>
+                <div className="pl-4 mt-1">
+                  <span className="text-slate-600">name:</span>{" "}
+                  <span className="text-emerald-600">&quot;Jared Naidoo&quot;</span>,
+                </div>
+                <div className="pl-4">
+                  <span className="text-slate-600">role:</span>{" "}
+                  <span className="text-emerald-600">&quot;Full Stack Developer&quot;</span>,
+                </div>
+                <div className="pl-4">
+                  <span className="text-slate-600">stack:</span> [
+                  <span className="text-emerald-600">&quot;Swift&quot;</span>,{" "}
+                  <span className="text-emerald-600">&quot;React&quot;</span>,{" "}
+                  <span className="text-emerald-600">&quot;AI&quot;</span>],
+                </div>
+                <div className="pl-4">
+                  <span className="text-slate-600">status:</span>{" "}
+                  <span className="text-emerald-600">&quot;Available&quot;</span>{" "}
+                  <span className="inline-block w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+                </div>
+                <div>{"}"}</div>
+              </div>
+            </div>
+
+            {/* Stats - Below card */}
+            <div className="flex justify-center lg:justify-end gap-4 mt-6">
+              <div className="bg-white rounded-xl shadow-lg border border-slate-200 p-4 min-w-[120px] text-center">
+                <div className="text-2xl sm:text-3xl font-bold text-[#0F4C5C]">4+</div>
+                <div className="text-xs sm:text-sm text-slate-600">Years Building Apps</div>
+              </div>
+              
+              <div className="bg-[#0F4C5C] text-white rounded-xl shadow-lg p-4 min-w-[120px] text-center">
+                <div className="text-2xl sm:text-3xl font-bold">5+</div>
+                <div className="text-xs sm:text-sm text-white/80">Apps Shipped</div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
 }

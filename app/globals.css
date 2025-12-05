@@ -2,29 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 15, 23, 42;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  font-family: var(--font-sans);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #1e293b;
 }
 
 @layer utilities {
-  .glass {
-    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-sm;
-  }
-  
-  .glass-hover {
-    @apply hover:bg-white/80 hover:border-white/40 hover:shadow-md transition-all duration-300;
+  .text-balance {
+    text-wrap: balance;
   }
 }

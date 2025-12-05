@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const inter = Inter({
   variable: "--font-inter",
@@ -15,8 +9,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Software Developer",
-  description: "A modern portfolio showcasing software development projects and skills.",
+  title: "Jared Naidoo | Software Developer",
+  description: "Full-stack developer specializing in iOS, Android, and web applications with AI integration.",
 };
 
 export default function RootLayout({
@@ -25,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
-      <body className="font-sans antialiased">
+    <html lang="en" className={inter.variable}>
+      <body className="font-sans antialiased bg-white text-slate-900">
         {children}
       </body>
     </html>
